@@ -1,5 +1,8 @@
 import React from "react";
 import { Layout } from "antd";
+import InputMessage from "../components/InputMessage";
+import MessageList from "../components/MessageList";
+import {store} from "../store/index";
 
 const MessageLayout = props => (
   <Layout style={{ height: "calc(100%)" }}>
@@ -13,6 +16,7 @@ const MessageLayout = props => (
       >
         <Layout.Content style={{ padding: "0 24px", height: "calc(80%)" }}>
           Content
+          {MessageList(store.getState().messages)}
         </Layout.Content>
       </Layout>
     </Layout.Content>
@@ -24,8 +28,10 @@ const MessageLayout = props => (
       }}
     >
       Write Message
+    {InputMessage((messag) => props.submit(messag))}
     </Layout.Footer>
+
   </Layout>
-);
+  );
 
 export default MessageLayout;

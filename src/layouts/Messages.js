@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { add as addMessage } from "../actions/messages";
-import MessageLayout from "./MessagesLayout";
+import MessagesLayout from "./MessagesLayout";
 
 const mapStateToProps = ({ messages }, ownProps) => ({
   messages,
@@ -14,7 +14,7 @@ class Messages extends React.Component {
   }
 
   render() {
-    return <MessageLayout />;
+      return <MessagesLayout submit={this.handleSubmitMessage.bind(this)}/>;
   }
 }
 
